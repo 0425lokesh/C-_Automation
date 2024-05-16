@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 
 public class WikipediaPage
 {
- 
+
     private static By Test = By.XPath("//span[@id='TDD']");
 
     public static By TDD { get; private set; }
@@ -30,9 +30,10 @@ public class WikipediaPage
 
         return wordCount;
     }
-
     internal static string ExtractTextContentFromTDD()
     {
-        throw new NotImplementedException();
+        WikipediaPage page = new WikipediaPage();
+        page.ExtractContent = BrowserManager.FindElement(TDD).Text;
+        return page.ExtractContent;
     }
 }
